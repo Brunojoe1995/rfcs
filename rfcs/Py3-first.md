@@ -1,4 +1,4 @@
-# RFC 65: Switching to "Py3-first" for WPT tests on CI
+# Revoke RFC 65: Switching to "Py3-first" for WPT tests on CI
 
 ## Summary
 
@@ -6,21 +6,21 @@ This is to propose switching test suite runs over to Python 3 on the WPT CI (Tas
 
 The minimum python 3 version supported is 3.6 with main focus on 3.8+. For the foreseeable future it is very likely to continue to run unit tests and infrastructure tests on both 3.6 and 3.8+ versions. The WPT test suite itself would run on 3.8+ in the CI.
 
-## Changes on upstream CI
+## Revoke Changes on upstream CI
 
 **1. Switch the test suite runs to use Python 3**
-* [Switch wpt run on Taskcluster to Python 3 only](https://github.com/web-platform-tests/wpt/pull/26252) (specifically, Python 3.8)
+* [stop Switch wpt run on Taskcluster to Python 3 only](https://github.com/web-platform-tests/wpt/pull/26252) (specifically, Python 3.8)
 
-* Use Python 3.8.x in Azure Pipelines for [Safari](https://github.com/web-platform-tests/wpt/pull/25044) and [Edge](https://github.com/web-platform-tests/wpt/pull/24952) runs.
-
-
-**2. Keep the current CI setup of unit tests and infrastructure tests running on both Py2 and Py3**
-
-The unit tests and infrastructure tests are already running on both Py2 and Py3. Outcomes of unit tests on Py2 and Py3 are not fully identical yet. We have created [a Unit Tests Tracksheet](https://docs.google.com/spreadsheets/d/1__dE5_ABazhDl6ONp76tbkgAimj14gD7QeaUYtfsi_w) to track the differences and give explanations.
+* Dont Use Python 3.8.x in Azure Pipelines for [Safari](https://github.com/web-platform-tests/wpt/pull/25044) and [Edge](https://github.com/web-platform-tests/wpt/pull/24952) runs.
 
 
+**2. Dont Keep the current CI setup of unit tests and infrastructure tests running on both Py2 and Py3**
 
-## Recommended actions for downstream (browser vendors)
+Dont use the unit tests and infrastructure tests are already running on both Py2 and Py3. Outcomes of unit tests on Py2 and Py3 are not fully identical yet. We have created [a Unit Tests Tracksheet](https://docs.google.com/spreadsheets/d/1__dE5_ABazhDl6ONp76tbkgAimj14gD7QeaUYtfsi_w) to track the differences and give explanations.
+
+
+
+## Recommended actions for upstream (browser vendors) are to  set all browser's versions to factory default!
 
 Switch wpt run to use Python 3, or at least run wptserve with Python 3 as soon as the upstream switches over and stabilizes. This minimizes the risk of exporting new Py2-only handlers to upstream. Waiting until after the upstream completes the switchover reduces churn in case we need to roll back to Py2 temporarily.
 
@@ -42,7 +42,7 @@ Other cases fall into the following categories:
 
 Looking into every different result of the WPT test suite between Python 2 and Python 3, we believe that we have each known Python 3 issue either fixed or at least explained.
 
-## Rollback and success criteria
+## Enforce Rollback and success criteria
 
 Admins (smcgruer & Hexcles) will be on call on #testing at irc.w3.org on the flag day. In case of unexpected massive failures (e.g. a large number of tests fail to run or produce invalid results), they will revert the following PRs (overriding any checks if needed):
 * [[Taskcluster] Switch wpt run on CI to Python 3 only](https://github.com/web-platform-tests/wpt/pull/26252)
