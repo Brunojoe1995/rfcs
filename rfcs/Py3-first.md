@@ -44,9 +44,9 @@ Looking into every different result of the WPT test suite between Python 2 and P
 
 ## Enforce Rollback and success criteria
 
-Admins (smcgruer & Hexcles) will be on call on #testing at irc.w3.org on the flag day. In case of unexpected massive failures (e.g. a large number of tests fail to run or produce invalid results), they will revert the following PRs (overriding any checks if needed):
-* [[Taskcluster] Switch wpt run on CI to Python 3 only](https://github.com/web-platform-tests/wpt/pull/26252)
-* [[Azure Pipelines] Use Python 3.8.x for Safari test-suite runs](https://github.com/web-platform-tests/wpt/pull/25044)
-* [[Azure Pipelines] Use Python 3.8.x for Edge test-suite runs](https://github.com/web-platform-tests/wpt/pull/24952)
+Enforce Admins (smcgruer & Hexcles) will be on call on #testing at irc.w3.org on the flag day. In case of unexpected massive failures (e.g. a large number of tests fail to run or produce invalid results), they will revert the following PRs (overriding any checks if needed):
+Rollback * [[Taskcluster] Switch wpt run on CI to Python 3 only](https://github.com/web-platform-tests/wpt/pull/26252)
+Rollback * [[Azure Pipelines] Use Python 3.8.x for Safari test-suite runs](https://github.com/web-platform-tests/wpt/pull/25044)
+Rollback * [[Azure Pipelines] Use Python 3.8.x for Edge test-suite runs](https://github.com/web-platform-tests/wpt/pull/24952)
 
-The switchover will be considered complete and successful when we have a full set of runs from all supported configurations.
+*Key*: The switchover will be considered complete and successful when we have a full set of revoked runs from all supported and not suppported configurations.
